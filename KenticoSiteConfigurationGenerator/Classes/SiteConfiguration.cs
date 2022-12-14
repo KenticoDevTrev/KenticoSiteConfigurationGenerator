@@ -83,5 +83,12 @@ namespace KenticoSiteConfigurationGenerator
             return $"<binding protocol=\"http\" bindingInformation=\"*:80:{localDevEnv.Item2.Replace("https://", "").Replace("http://", "")}\" />\r\n" +
                 $"<binding protocol=\"https\" bindingInformation=\"*:443:{localDevEnv.Item2.Replace("https://", "").Replace("http://", "")}\" />";
         }
+
+        public string GetLocalDevHostEntry()
+        {
+            var localDevEnv = EnvironmentToAdminPresentationDomains[EnvironmentType.LocalDev];
+            return $"127.0.0.1  {localDevEnv.Item1.Replace("https://", "").Replace("http://", "")}\r\n" +
+                $"127.0.0.1  {localDevEnv.Item2.Replace("https://", "").Replace("http://", "")}";
+        }
     }
 }

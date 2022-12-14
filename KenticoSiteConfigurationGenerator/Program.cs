@@ -357,6 +357,7 @@ End
         {
             var siteConfigs = baseConfigurations.Select(x => x.GetSiteConfiguration());
             File.WriteAllText("../../GeneratedResults\\LocalDevIISBindings\\LocalDev-IISExpressBindings.txt", string.Join("\n\r", siteConfigs.Select(x => x.GetLocalDevIISExpressBindings())));
+            File.WriteAllText("../../GeneratedResults\\LocalDevIISBindings\\LocalDev-HostEntries.txt", string.Join("\n\r", siteConfigs.Select(x => x.GetLocalDevHostEntry())));
         }
     }
 }
